@@ -4,33 +4,62 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#101521">
-<title>Motion Frame — Webtoon動画編集 v1.0</title>
+<title>Motion Frame — Webtoon動画編集 v2.0</title>
 <style>
 :root{color-scheme:dark;--bg:#0c111b;--surface:#151c29;--surface2:#1a2434;--surface3:#202d40;--border:#303b50;--text:#eef3fa;--muted:#9faec5;--sub:#657992;--accent:#6bb6ff;--accent2:#54d5bb;--warn:#ffc27f;--danger:#ff8894;--radius:13px;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-size:13px;line-height:1.48}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.44;cursor:not-allowed}a{color:var(--accent)}.app{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}.topbar{height:67px;padding:10px 18px;display:flex;align-items:center;gap:13px;border-bottom:1px solid var(--border);background:#111824;flex-shrink:0}.logo{display:grid;place-items:center;width:41px;height:41px;border-radius:12px;background:linear-gradient(135deg,#61b8ff,#927dff);font-size:22px;color:#071221;font-weight:900}.brand{min-width:195px}.brand-title{font-weight:800;font-size:17px;letter-spacing:.02em}.brand-sub{font-size:10px;color:var(--muted)}.top-actions{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.smallpill{display:inline-flex;align-items:center;gap:6px;background:#202e40;border-radius:50px;border:1px solid #3a4d65;font-size:10px;color:#bedaf7;padding:4px 9px}.btn{border:1px solid var(--border);border-radius:9px;background:var(--surface2);color:var(--text);padding:8px 11px;min-height:35px;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-weight:600;line-height:1.3;white-space:nowrap}.btn:hover:not(:disabled){background:var(--surface3);border-color:#486782}.btn:active:not(:disabled){transform:translateY(1px)}.btn.primary{background:#287dd0;border-color:#3a96ed;color:white}.btn.primary:hover{background:#3c92e3}.btn.success{background:#1c786f;border-color:#39a798}.btn.danger{color:var(--danger)}.btn.tiny{padding:5px 7px;min-height:28px;border-radius:7px;font-size:12px}.btn.icon-only{width:34px;padding:6px}.layout{flex:1;display:grid;grid-template-columns:minmax(218px,248px) minmax(320px,1fr) minmax(285px,310px);min-height:0}.pane{background:var(--surface);min-width:0}.left{border-right:1px solid var(--border);display:flex;flex-direction:column}.right{border-left:1px solid var(--border);display:flex;flex-direction:column}.section{padding:15px;border-bottom:1px solid var(--border)}.section-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}.section-title{font-size:12px;text-transform:uppercase;font-weight:800;letter-spacing:.055em;color:#dbe7f7}.quiet{color:var(--muted);font-size:11px}.tool-row{display:flex;gap:6px;flex-wrap:wrap}.drop{border:1px dashed #3f5976;background:rgba(53,99,143,.09);border-radius:11px;padding:16px 10px;text-align:center;color:var(--muted);margin:8px 0;font-size:12px}.drop.drag-over{border-color:var(--accent);background:#1d3753}.drop strong{color:var(--text);display:block}.layer-list{display:flex;flex-direction:column;gap:7px;max-height:45vh;overflow-y:auto;overscroll-behavior:contain}.layer-item{display:flex;align-items:center;gap:8px;padding:8px;border:1px solid var(--border);border-radius:9px;cursor:pointer;background:#161f2c}.layer-item.active{border-color:#61aeff;background:#20364e;box-shadow:inset 3px 0 #68bbff}.layer-thumb{width:42px;height:45px;background:#0c1420;border-radius:5px;object-fit:contain;flex-shrink:0}.layer-name{font-weight:750;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}.layer-meta{font-size:10px;color:var(--muted)}.layer-details{min-width:0;flex:1}.layer-actions{display:flex;flex-direction:column;gap:3px}.mini-action{background:transparent;color:#bdcde0;border:0;border-radius:5px;padding:3px;font-size:14px;line-height:1}.mini-action:hover{background:#41516a}.preset-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.preset{font-size:11px;padding:8px 6px;text-align:center;white-space:normal}.middle{background:#101722;display:flex;flex-direction:column;min-width:0}.previewbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);gap:9px;flex-wrap:wrap}.previewwrap{flex:1;min-height:360px;display:flex;align-items:center;justify-content:center;padding:16px;position:relative;overflow:hidden;background-color:#0c121e;background-image:radial-gradient(#1b2b40 1px,transparent 1px);background-size:19px 19px}.stage-shell{height:min(70vh,700px);max-height:calc(100dvh - 225px);max-width:100%;aspect-ratio:9/16;position:relative;box-shadow:0 16px 60px rgba(0,0,0,.53);outline:1px solid #607088;background:white;overflow:hidden;touch-action:none}.stage-shell canvas{height:100%;width:100%;display:block;touch-action:none;cursor:grab}.stage-shell canvas:active{cursor:grabbing}.stage-overlay{position:absolute;bottom:10px;left:10px;right:10px;pointer-events:none;display:flex;align-items:center;justify-content:space-between}.stage-overlay span{font-size:10px;background:#0c1522bb;padding:4px 7px;color:#e5f0ff;border-radius:5px}.timeline{border-top:1px solid var(--border);background:#131c2b;padding:14px}.player{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:11px;flex-wrap:wrap}.player-controls{display:flex;align-items:center;gap:8px}.time{font-variant-numeric:tabular-nums;color:#dce9f8;font-weight:800;font-size:14px}.range{width:100%;accent-color:var(--accent);cursor:pointer}.timeline-line{display:flex;gap:8px;align-items:center}.timeline-line input{flex:1}.end-label{font-size:11px;color:var(--muted);min-width:37px}.tip{font-size:11px;color:#9daeca;margin-top:9px}.inspector-scroll{padding-bottom:25px;overflow:auto;overscroll-behavior:contain;max-height:calc(100dvh - 67px)}.heading{color:#dce7f7;font-size:13px;font-weight:800;margin-bottom:9px}.field{margin:12px 0}.field label{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:#c8d5e7;margin-bottom:6px;gap:8px}.field label output{color:#9bd3ff;font-variant-numeric:tabular-nums;font-weight:800}.field input[type=range]{width:100%;height:18px;accent-color:var(--accent)}input[type=number],input[type=text],input[type=color],select,textarea{background:#0f1724;border:1px solid #3b4d67;border-radius:8px;color:#f1f6ff;padding:8px;outline:none;max-width:100%}input[type=number]{width:72px}input:focus,select:focus,textarea:focus{border-color:var(--accent)}.keybtns{display:flex;gap:7px;margin:9px 0}.keybtns button{flex:1}.keybtns .on{border-color:#70baff;background:#234663;color:#fff}.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.modes button{font-size:11px;padding:8px 5px}.modes button.active{background:#265b82;border-color:#4da9ec}.form-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:10px 0;font-size:11px}.form-row select{min-width:90px}.prompt{width:100%;min-height:145px;resize:vertical;font-size:12px;line-height:1.7}.hint{padding:11px 12px;background:#1b2a3b;border-left:3px solid #63b4f5;border-radius:6px;color:#c3d9ec;font-size:11px}.danger-hint{border-color:#f0b45d}.export-actions{display:flex;gap:7px;flex-wrap:wrap}.status{border-top:1px solid var(--border);padding:9px 16px;background:#111824;font-size:11px;color:var(--muted);display:flex;align-items:center;justify-content:space-between;gap:10px}.status strong{color:#abdfc6}.hidden{display:none!important}.empty{padding:14px 9px;text-align:center;font-size:11px;color:var(--muted);border:1px dashed #3b4c63;border-radius:10px}.space{height:6px}.check{display:flex;gap:9px;align-items:center;color:#cad8e7;font-size:12px}.check input{accent-color:var(--accent)}.scrollnote{font-size:10px;color:var(--sub);margin-top:9px}.busybar{height:5px;border-radius:5px;background:#28384e;overflow:hidden;margin:10px 0}.busyfill{height:100%;width:0;background:linear-gradient(90deg,#479ef0,#77e0bd);transition:width .2s}.chip{display:inline-block;background:#293648;border-radius:6px;padding:2px 7px;font-size:10px;color:#bdd1e9}.copy{margin-left:5px}.bottomlink{color:#98bedc;font-size:11px}.right .section{padding:14px}.left-footer{margin-top:auto}.switch{display:flex;gap:7px;align-items:center}.switch input{accent-color:#59b8ff}.select-full{width:100%}.help-line{display:flex;justify-content:space-between;gap:8px;margin:6px 0;color:#aabbce;font-size:11px}.shortcut{color:#7f9bb9}#toast{position:fixed;bottom:23px;left:50%;transform:translateX(-50%);border-radius:10px;background:#2b4660;color:white;padding:11px 18px;z-index:25;box-shadow:0 10px 30px #0007;max-width:90vw;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s}#toast.show{opacity:1}.spinner{display:inline-block;height:12px;width:12px;border:2px solid #9bc9f480;border-top-color:#f0f7ff;border-radius:100%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:1080px){.layout{grid-template-columns:200px minmax(260px,1fr) 275px}.section{padding:10px}.right .section{padding:10px}.topbar{padding:9px 10px}.previewwrap{padding:12px}}@media(max-width:880px){.layout{grid-template-columns:minmax(0,1fr) minmax(255px,310px)}.left{grid-column:1/-1;grid-row:2;border-right:0;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;align-content:start}.middle{grid-column:1;grid-row:1}.right{grid-column:2;grid-row:1}.previewwrap{min-height:370px}.stage-shell{max-height:min(66dvh,650px)}.inspector-scroll{max-height:calc(100dvh - 67px)}.top-actions .smallpill{display:none}}@media(max-width:620px){.topbar{height:auto;min-height:59px;gap:8px}.brand{min-width:auto}.brand-title{font-size:15px}.brand-sub{font-size:9px}.top-actions{gap:5px}.top-actions .btn{padding:7px;font-size:11px;min-height:32px}.logo{width:33px;height:33px;font-size:19px}.layout{display:flex;flex-direction:column}.middle{order:1}.right{order:2;border-left:0;border-top:1px solid var(--border)}.left{order:3;display:flex;border-top:1px solid var(--border)}.previewwrap{min-height:360px;padding:12px}.stage-shell{height:min(63dvh,530px);max-height:none}.right .inspector-scroll{max-height:none}.layer-list{max-height:none}.modes{grid-template-columns:repeat(3,1fr)}.status{padding:8px}.left-footer{margin-top:0}.previewbar{padding:8px}.timeline{padding:10px}.section{padding:12px}.right .section{padding:13px}}
+
+/* Cut Studio v2 */
+#cutModal{position:fixed;inset:0;z-index:40;background:#0b111b;display:flex;flex-direction:column;overflow:hidden}
+#cutModal[hidden]{display:none!important}
+.cut-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;background:#141f2d;border-bottom:1px solid #3b4b60}
+.cut-head strong{font-size:16px}.cut-head .sp{flex:1}.cut-head small{font-size:11px;color:#a7bad0}
+.cut-main{min-height:0;flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,312px)}
+.cut-view{min-width:0;min-height:0;position:relative;background:#0b111a;display:flex;flex-direction:column}
+.cut-viewport{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;background-color:#111924;background-image:linear-gradient(45deg,#233042 25%,transparent 25%),linear-gradient(-45deg,#233042 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#233042 75%),linear-gradient(-45deg,transparent 75%,#233042 75%);background-size:30px 30px;background-position:0 0,0 15px,15px -15px,-15px 0;display:flex;justify-content:center;align-items:flex-start;padding:18px}
+#cutCanvas{display:block;max-width:none;flex:none;height:auto;box-shadow:0 10px 35px #0009;touch-action:none;cursor:crosshair;image-rendering:auto;background:white}
+.cut-bottombar{border-top:1px solid var(--border);background:#142031;padding:8px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.cut-control{background:#151e2c;border-left:1px solid #344256;padding:12px;overflow:auto;overscroll-behavior:contain}
+.cut-control .cut-card{padding:12px 0;border-bottom:1px solid #354155}
+.cut-control .cut-card:first-child{padding-top:0}
+.cut-card h3{margin:0 0 8px;font-size:12px;color:#e2ecfa}
+.cut-controls-row{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}
+.cut-tools{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.cut-tool{min-height:40px;white-space:normal;text-align:center;font-size:11px;padding:7px}
+.cut-tool.on{background:#245578;border-color:#66baff;color:white}
+.cut-inline{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;margin:7px 0}
+.cut-inline input[type=range]{width:57%;accent-color:#69b6ff}
+.cut-inline output{min-width:35px;text-align:right;color:#a5d4ff}
+.cut-note{font-size:11px;color:#a7bdd0;line-height:1.7}
+.cut-status{font-size:11px;color:#b8d2e8;background:#1c2e42;border-radius:8px;padding:9px;margin-top:9px;white-space:normal}
+.cut-steps{font-size:11px;color:#c5d8e9;line-height:1.7}
+.cut-steps b{color:#6ec5ff}
+#cutBusy{color:#a9d7ff;font-size:11px;margin-top:5px;min-height:14px}
+@media(max-width:760px){#cutModal{overflow:auto}.cut-head{padding:7px 9px}.cut-main{display:flex;flex-direction:column;overflow:auto;min-height:0}.cut-view{min-height:350px;height:49vh;flex:0 0 auto}.cut-control{border-left:0;border-top:1px solid var(--border);max-height:none;overflow:visible}.cut-control .cut-card{padding:9px 0}.cut-viewport{padding:10px}.cut-bottombar{padding:7px}}
+
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
-  <div class="logo">M</div><div class="brand"><div class="brand-title">Motion Frame <span style="font-size:9px;color:#8fc3fd">v1.0</span></div><div class="brand-sub">マンガを動かす・2.5D映像エディター</div></div>
-  <div class="top-actions"><span class="smallpill">● オフライン編集 / AIは外部連携</span><button class="btn tiny" id="loadDemo">サンプル</button><button class="btn tiny" id="saveProject">プロジェクト保存</button><button class="btn tiny" id="openProject">読込</button></div>
+  <div class="logo">M</div><div class="brand"><div class="brand-title">Motion Frame <span style="font-size:9px;color:#8fc3fd">v2.0</span></div><div class="brand-sub">マンガを動かす・2.5D映像エディター</div></div>
+  <div class="top-actions"><span class="smallpill">● 手動切り抜きはオフライン対応 / 人物AIは通信あり</span><button class="btn tiny" id="loadDemo">サンプル</button><button class="btn tiny" id="saveProject">プロジェクト保存</button><button class="btn tiny" id="openProject">読込</button></div>
 </header>
 <div class="layout">
   <aside class="pane left">
     <section class="section">
       <div class="section-head"><span class="section-title">素材とレイヤー</span><span class="chip" id="layerCount">0枚</span></div>
-      <div class="tool-row"><button class="btn primary" id="addImages">＋ 画像</button><button class="btn" id="addVideo">＋ 動画</button><button class="btn" id="clearLayers">全消去</button></div>
+      <div class="tool-row"><button class="btn primary" id="openCutter">✂ 1枚からレイヤー分離</button><button class="btn tiny" id="cutDemo">分離サンプル</button><button class="btn" id="addImages">＋ 画像</button><button class="btn" id="addVideo">＋ 動画</button><button class="btn" id="clearLayers">全消去</button></div>
       <div id="dropzone" class="drop"><strong>PNG / JPG / MP4 / WebM</strong>ここへドロップ、または上のボタンから追加</div>
       <div id="layerList" class="layer-list"><div class="empty">まだレイヤーがありません。<br>まずは「サンプル」か画像追加を。</div></div>
-      <div class="scrollnote">上のレイヤーほど手前に表示。選択するとキャンバス上でドラッグできます。</div>
+      <div class="scrollnote">「✂ 1枚からレイヤー分離」から、人物・前景などを選択し透過PNGに変換できます。前景・中景・遠景は必要に応じて繰り返し切り抜いてください。</div><div class="scrollnote">上のレイヤーほど手前に表示。選択するとキャンバス上でドラッグできます。</div>
       <div class="tool-row" style="margin-top:10px"><button class="btn tiny" id="upLayer" title="手前に移動">↑ 手前</button><button class="btn tiny" id="downLayer" title="奥に移動">↓ 奥</button><button class="btn tiny" id="dupeLayer">複製</button><button class="btn tiny danger" id="deleteLayer">削除</button></div>
     </section>
     <section class="section"><div class="section-head"><span class="section-title">すぐに動かす</span><span class="quiet">選択レイヤーに適用</span></div>
       <div class="preset-grid"><button class="btn preset" data-preset="zoom">ゆっくり接近</button><button class="btn preset" data-preset="panL">左へ流す</button><button class="btn preset" data-preset="panR">右へ流す</button><button class="btn preset" data-preset="rise">下から登場</button><button class="btn preset" data-preset="fade">フェードイン</button><button class="btn preset" data-preset="breath">微かな呼吸</button></div>
     </section>
-    <section class="section left-footer"><span class="section-title">制作メモ</span><p class="quiet">コマの原画はそのまま。背景・人物・前景を別々の透過PNGにすると、奥行きのある演出を作れます。</p><p class="quiet">動画素材はAI生成サービスで作り、このアプリへ読み込んで重ねられます。</p></section>
+    <section class="section left-footer"><span class="section-title">制作メモ</span><p class="quiet">切り抜きモードで1枚の画像を人物／背景などに分離して、レイヤーごとに奥行きを設定できます。</p><p class="quiet">動画素材はAI生成サービスで作り、このアプリへ読み込んで重ねられます。</p></section>
   </aside>
   <main class="middle">
     <div class="previewbar"><div class="tool-row"><span style="font-weight:800">プレビュー</span><span id="sceneInfo" class="chip">9:16 · 540×960</span></div><div class="tool-row"><label class="switch"><input id="showGrid" type="checkbox">ガイド線</label><button class="btn tiny" id="snapshot">静止画保存</button><button class="btn tiny" id="centerLayer">中央に戻す</button></div></div>
@@ -52,14 +81,46 @@
       <section class="section"><div class="heading">書き出し設定</div><div class="form-row"><label for="exportSize">解像度</label><select id="exportSize"><option value="540">540 × 960（標準）</option><option value="720">720 × 1280（高画質）</option><option value="1080">1080 × 1920（重い）</option></select></div><div class="form-row"><label for="exportFps">PNG連番のFPS</label><select id="exportFps"><option value="8">8 fps（軽量）</option><option value="12" selected>12 fps（推奨）</option><option value="24">24 fps（大きい）</option></select></div><div class="export-actions"><button class="btn primary" id="exportVideo">動画に書き出す</button><button class="btn" id="exportFrames">PNG連番ZIP</button><button class="btn" id="exportStill">現在のコマPNG</button></div><p class="quiet">動画は利用ブラウザが対応するMP4またはWebMを出力します。iOS Safariで動画録画非対応の場合は「PNG連番ZIP」を使ってください。音声は書き出しません。</p><div id="busyArea" class="hidden"><div class="busybar"><div class="busyfill" id="busyFill"></div></div><div class="quiet" id="busyLabel">準備中...</div></div></section>
     </div>
     <section class="section" id="generalSettings"><div class="section-head"><span class="section-title">シーン設定</span><span class="quiet">共通</span></div><div class="form-row"><label for="duration">長さ</label><select id="duration"><option value="2">2 秒</option><option value="3">3 秒</option><option value="4" selected>4 秒</option><option value="5">5 秒</option><option value="6">6 秒</option><option value="8">8 秒</option></select></div><div class="form-row"><label for="aspect">画面比</label><select id="aspect"><option value="9:16">9:16 縦型</option><option value="3:4">3:4 漫画コマ</option><option value="1:1">1:1 正方形</option><option value="16:9">16:9 横型</option></select></div><div class="form-row"><label for="sceneBg">背景色</label><input id="sceneBg" type="color" value="#f5f2e9"></div><div class="form-row"><label for="easing">動きの緩急</label><select id="easing"><option value="inout" selected>ゆっくり→速く→ゆっくり</option><option value="linear">等速</option><option value="out">最初速く→ゆっくり</option><option value="in">ゆっくり→最後速く</option></select></div></section>
-    <section class="section"><span class="section-title">使い方</span><div class="help-line"><span>① 素材画像を読み込む</span><span class="shortcut">画像/動画</span></div><div class="help-line"><span>② 開始と終了の位置を指定</span><span class="shortcut">右のスライダー</span></div><div class="help-line"><span>③ 再生して効果を確認</span><span class="shortcut">中央下</span></div><div class="help-line"><span>④ 動画・連番を出力</span><span class="shortcut">AI / 出力</span></div><p class="quiet">編集のたびにプレビュー位置が最初へ戻らない設計です。サンプル素材はアプリ内蔵、外部通信なし。</p></section>
+    <section class="section"><span class="section-title">使い方</span><div class="help-line"><span>① 「✂ 1枚からレイヤー分離」で切り抜く</span><span class="shortcut">AI / 手動</span></div><div class="help-line"><span>② 開始と終了の位置を指定</span><span class="shortcut">右のスライダー</span></div><div class="help-line"><span>③ 再生して効果を確認</span><span class="shortcut">中央下</span></div><div class="help-line"><span>④ 動画・連番を出力</span><span class="shortcut">AI / 出力</span></div><p class="quiet">編集のたびにプレビュー位置が最初へ戻らない設計です。サンプル素材は内蔵。自動人物認識の初回にはインターネット接続が必要です。</p></section>
   </div></aside>
 </div>
-<div class="status"><span id="statusText">準備完了。サンプルを読み込むとすぐ試せます。</span><span><strong>ローカル処理</strong> · 音声なし · v1.0</span></div>
+<div class="status"><span id="statusText">準備完了。サンプルを読み込むとすぐ試せます。</span><span><strong>ローカル処理</strong> · 音声なし · v2.0</span></div>
 </div>
 <input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" multiple class="hidden">
 <input id="videoInput" type="file" accept="video/mp4,video/webm,video/quicktime" multiple class="hidden">
 <input id="projectInput" type="file" accept=".zip,application/zip" class="hidden">
+
+<div id="cutModal" hidden aria-label="レイヤー分離スタジオ" role="dialog" aria-modal="true">
+  <div class="cut-head"><div class="logo" style="width:32px;height:32px;font-size:16px">✂</div><strong>レイヤー分離スタジオ</strong><small>Motion Frame v2.0</small><span class="sp"></span><button id="cutPickBtn" class="btn tiny">＋ 別の画像</button><button id="cutClose" class="btn tiny">× 閉じる</button></div>
+  <div class="cut-main"><div class="cut-view">
+    <div id="cutViewport" class="cut-viewport"><canvas id="cutCanvas" width="540" height="960" aria-label="切り抜き編集用キャンバス"></canvas></div>
+    <div class="cut-bottombar"><span class="chip" id="cutSize">540 × 960</span><button id="cutViewOriginal" class="btn tiny">原画＋選択</button><button id="cutViewExtract" class="btn tiny">切り抜き表示</button><button id="cutViewBack" class="btn tiny">背景確認</button><div class="sp" style="flex:1"></div><button id="cutZoomOut" class="btn tiny">－</button><span id="cutZoomLabel" class="chip">100%</span><button id="cutZoomIn" class="btn tiny">＋</button></div>
+  </div><aside class="cut-control">
+    <div class="cut-card"><h3>① 選択する方法</h3><div class="cut-controls-row"><button id="cutAuto" class="btn primary">✨ 人物をAI自動選択</button><span class="chip">β テスト機能</span></div>
+      <div class="cut-note">人物AI・物体タップAIは初回にGoogle MediaPipeモデルを読み込みます（通信が必要）。写真向けモデルのため、漫画の線画では認識できない場合があります。</div><div id="cutBusy" aria-live="polite"></div>
+      <div class="cut-tools"><button class="btn cut-tool on" data-cut-tool="brush">🖌 ブラシで追加</button><button class="btn cut-tool" data-cut-tool="erase">消しゴム</button><button class="btn cut-tool" data-cut-tool="pan">✋ 画像をスクロール</button><button class="btn cut-tool" data-cut-tool="object">✨ AIで物体をタップ</button><button class="btn cut-tool" data-cut-tool="wand">タップ範囲選択</button><button class="btn cut-tool" data-cut-tool="lasso">⬡ なげなわ</button></div>
+      <div class="cut-note" id="cutToolHelp">指・Apple Pencilで塗った範囲が切り抜かれます。</div>
+      <div class="cut-inline"><label for="cutBrush">ブラシ直径</label><input id="cutBrush" type="range" min="4" max="150" value="36"><output id="cutBrushVal">36px</output></div>
+      <div class="cut-inline"><label for="cutTolerance">色の許容差（タップ選択）</label><input id="cutTolerance" type="range" min="4" max="140" value="32"><output id="cutTolVal">32</output></div>
+      <div class="cut-inline"><label for="cutFeather">境界のぼかし</label><input id="cutFeather" type="range" min="0" max="6" value="1"><output id="cutFeatherVal">1px</output></div>
+      <label class="check" style="margin:10px 0"><input type="checkbox" id="cutSubtractWand">タップ選択・なげなわを消去に使う</label>
+      <div class="cut-controls-row"><button class="btn tiny" id="cutClosePolygon">なげなわを確定</button><button class="btn tiny" id="cutUndo">↶ 元に戻す</button><button class="btn tiny" id="cutInvert">選択を反転</button><button class="btn tiny danger" id="cutClear">選択を消去</button></div>
+      <div class="cut-note">画像を上下に動かすときは「画像をスクロール」を選択してください。背景の白い部分を選択した場合は「選択を反転」で人物側を選べます。</div>
+    </div>
+    <div class="cut-card"><h3>② レイヤーに変換</h3>
+      <div class="cut-inline"><label for="cutName">切り抜き名</label><input id="cutName" type="text" value="人物" style="width:55%" aria-label="切り抜きレイヤー名"></div>
+      <div class="cut-inline"><label for="cutDepth">奥行き（0＝遠景・100＝前景）</label><input id="cutDepth" type="range" min="0" max="100" value="75"><output id="cutDepthVal">75</output></div>
+      <label class="check" style="margin:9px 0"><input type="checkbox" id="cutFill" checked>背景の隠れた部分を簡易補完する</label>
+      <div class="cut-note">簡易補完は周囲の画素から色を延ばす方式です。複雑な建物・線画を正しく描き直す生成AIではありません。大きく動かす場合は背景を手動修正してください。</div>
+      <div class="cut-controls-row"><button id="cutCommit" class="btn primary" style="white-space:normal;min-height:42px">✓ 背景＋切り抜きレイヤーを作成</button></div>
+      <div class="cut-controls-row"><button id="cutSaveForeground" class="btn tiny">切り抜きPNG</button><button id="cutSaveBackground" class="btn tiny">背景PNG</button></div>
+      <div class="cut-status" id="cutStatus">画像を選択してください。まずはブラシやなげなわで切り抜く範囲を指定します。</div>
+    </div>
+    <div class="cut-card"><div class="cut-steps"><b>使い方</b> ①画像読込 → ②人物AIまたは手動で選択 → ③必要なら背景補完 → ④レイヤーを作成。別の物体を切り抜く場合も同じ操作を繰り返します。</div></div>
+  </aside></div>
+</div>
+<input id="cutFileInput" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" class="hidden">
+
 <div id="mediaRack" style="position:absolute;width:1px;height:1px;overflow:hidden;pointer-events:none;opacity:0"></div>
 <div id="toast" role="status"></div>
 <script>
@@ -214,6 +275,109 @@ async function loadDemo(){if(state.exporting)return;clearAll(true);state.aspect=
  const defs=[{svg:demoBackground,name:'背景｜街並み',depth:10,start:{x:0,y:0,scale:100,rotation:0,opacity:100},end:{x:-3,y:0,scale:104,rotation:0,opacity:100}},{svg:demoPerson,name:'人物｜主人公',depth:60,start:{x:0,y:0,scale:100,rotation:0,opacity:100},end:{x:2,y:-1,scale:103,rotation:0,opacity:100}},{svg:demoForeground,name:'前景｜街灯と雨',depth:100,start:{x:0,y:0,scale:100,rotation:0,opacity:100},end:{x:9,y:0,scale:109,rotation:0,opacity:100}}];
  for(const d of defs){const l=await addLayer(new Blob([d.svg],{type:'image/svg+xml'}),{name:d.name});l.depth=d.depth;l.fit='contain';l.start=d.start;l.end=d.end}state.selected=state.layers[1]?.id||null;state.key='start';setTime(0);refreshLayers();refreshInspector();toast('3枚のサンプルを読み込みました。再生を押してください');status('サンプルを読み込みました。▶再生で2.5Dの動きを確認できます')
  }catch(e){toast('サンプル読込エラー: '+e.message)}}
+
+// =====================================================================
+// Cut Studio v2 — manual mask editing, optional local MediaPipe person AI
+// =====================================================================
+const CUT={source:null,original:null,mask:null,w:0,h:0,tool:'brush',view:'overlay',zoom:1,history:[],polygon:[],activePointer:null,lastPoint:null,sourceLayer:null,sourceBlob:null,busy:false,segmenter:null,objectSegmenter:null,objectSource:null,visionPkg:null,visionFiles:null,baseWidth:500};
+const cutCanvas=$('#cutCanvas'),cutCtx=cutCanvas.getContext('2d',{willReadFrequently:true});
+const cutStatus=message=>$('#cutStatus').textContent=message;
+const cutBusy=message=>{$('#cutBusy').textContent=message||'';CUT.busy=!!message;$('#cutAuto').disabled=CUT.busy;$('#cutCommit').disabled=CUT.busy;};
+function cutSetTool(tool){CUT.tool=tool;CUT.polygon=[];cutCanvas.style.touchAction=tool==='pan'?'auto':'none';cutCanvas.style.cursor=tool==='pan'?'grab':'crosshair';$$('[data-cut-tool]').forEach(b=>b.classList.toggle('on',b.dataset.cutTool===tool));$('#cutToolHelp').textContent={brush:'指・Apple Pencilで選択範囲を塗り足します。',pan:'指で画像を上下左右にスクロールします。＋／－で拡大縮小できます。',erase:'指・Apple Pencilで塗った範囲を選択から消します。',wand:'同じ色でつながる範囲をタップして選択します。',object:'人物・小道具などの内側をタップしてAIで輪郭を推定します。',lasso:'輪郭の点を順にタップし「なげなわを確定」を押します。'}[tool];cutDraw();}
+function cutOpen(){pause();$('#cutModal').hidden=false;document.body.style.overflow='hidden';setTimeout(cutFit,20)}
+function cutClose(){$('#cutModal').hidden=true;document.body.style.overflow='';CUT.activePointer=null;}
+function cutFit(){if(!CUT.w)return;const viewport=$('#cutViewport');CUT.baseWidth=Math.min(CUT.w,Math.max(210,viewport.clientWidth-40));const width=Math.max(120,Math.round(CUT.baseWidth*CUT.zoom));cutCanvas.style.width=width+'px';cutCanvas.style.height=Math.round(width*CUT.h/CUT.w)+'px';$('#cutZoomLabel').textContent=Math.round(CUT.zoom*100)+'%';}
+function cutSetZoom(z){CUT.zoom=clamp(z,.5,4);cutFit()}
+async function cutLoad(file,sourceLayer=null){if(!file)return;try{cutBusy('画像を読み込み中…');const src=await initMedia(file,'image');const limit=1400;const ratio=Math.min(1,limit/Math.max(src.w,src.h));const w=Math.max(1,Math.round(src.w*ratio)),h=Math.max(1,Math.round(src.h*ratio));const tmp=document.createElement('canvas');tmp.width=w;tmp.height=h;const t=tmp.getContext('2d',{willReadFrequently:true});t.drawImage(src.el,0,0,w,h);CUT.source=tmp;CUT.original=t.getImageData(0,0,w,h);CUT.mask=new Uint8Array(w*h);CUT.w=w;CUT.h=h;CUT.history=[];CUT.polygon=[];CUT.sourceLayer=sourceLayer;CUT.sourceBlob=file;CUT.zoom=1;CUT.view='overlay';CUT.baseWidth=w;cutCanvas.width=w;cutCanvas.height=h;URL.revokeObjectURL(src.url);$('#cutName').value=sourceLayer?sourceLayer.name.replace(/\.[a-z]+$/i,'')+'・切り抜き':'人物';$('#cutSize').textContent=`${w}×${h} 作業サイズ`;
+ $('#cutFill').checked=true;cutOpen();cutSetTool('brush');cutFit();cutDraw();cutStatus('画像を読み込みました。AI自動選択、なげなわ、ブラシ、タップ選択が使えます。');
+ }catch(e){cutStatus('画像の読み込みに失敗: '+e.message);toast('画像を読み込めませんでした')}finally{cutBusy('')}}
+function cutDraw(){if(!CUT.original)return;const w=CUT.w,h=CUT.h;if(CUT.view==='background'){const bg=cutMakeBackground(cutGetAlpha(),$('#cutFill').checked);cutCtx.clearRect(0,0,w,h);cutCtx.drawImage(bg,0,0);return}let d=new ImageData(new Uint8ClampedArray(CUT.original.data),w,h);const pixels=d.data,m=CUT.mask;const view=CUT.view;
+ if(view==='isolated'){for(let i=0;i<m.length;i++){const a=i*4;const select=m[i];if(select===0){pixels[a]=243;pixels[a+1]=244;pixels[a+2]=246;pixels[a+3]=255}else if(select<255){pixels[a]=Math.round(pixels[a]*select/255+243*(1-select/255));pixels[a+1]=Math.round(pixels[a+1]*select/255+244*(1-select/255));pixels[a+2]=Math.round(pixels[a+2]*select/255+246*(1-select/255))}}}
+ else if(view==='background'){for(let i=0;i<m.length;i++){if(m[i]>0){const a=i*4;pixels[a]=232;pixels[a+1]=235;pixels[a+2]=239}}}
+ else{for(let i=0;i<m.length;i++){if(m[i]){const a=i*4,al=m[i]/255*.33;pixels[a]=Math.round(pixels[a]*(1-al)+55*al);pixels[a+1]=Math.round(pixels[a+1]*(1-al)+170*al);pixels[a+2]=Math.round(pixels[a+2]*(1-al)+255*al)}}}
+ cutCtx.putImageData(d,0,0);
+ if(CUT.polygon.length){cutCtx.save();cutCtx.strokeStyle='#ffb251';cutCtx.lineWidth=Math.max(2,w/400);cutCtx.fillStyle='#ffd084';cutCtx.setLineDash([8,5]);cutCtx.beginPath();CUT.polygon.forEach((p,i)=>i?cutCtx.lineTo(p.x,p.y):cutCtx.moveTo(p.x,p.y));cutCtx.stroke();cutCtx.setLineDash([]);for(const p of CUT.polygon){cutCtx.beginPath();cutCtx.arc(p.x,p.y,Math.max(3,w/220),0,Math.PI*2);cutCtx.fill()}cutCtx.restore()}
+}
+function cutSaveUndo(){if(!CUT.mask)return;CUT.history.push(CUT.mask.slice());if(CUT.history.length>8)CUT.history.shift()}
+function cutGetPoint(e){const r=cutCanvas.getBoundingClientRect();return {x:clamp((e.clientX-r.left)*CUT.w/r.width,0,CUT.w-1),y:clamp((e.clientY-r.top)*CUT.h/r.height,0,CUT.h-1)}}
+function cutBrush(from,to,erase){const x0=from.x,y0=from.y,x1=to.x,y1=to.y;const radius=Number($('#cutBrush').value)/2;const steps=Math.max(1,Math.ceil(Math.hypot(x1-x0,y1-y0)/(radius*.55+1)));const w=CUT.w,h=CUT.h,m=CUT.mask,r2=radius*radius;
+ for(let s=0;s<=steps;s++){const cx=x0+(x1-x0)*s/steps,cy=y0+(y1-y0)*s/steps;for(let y=Math.max(0,Math.floor(cy-radius));y<=Math.min(h-1,Math.ceil(cy+radius));y++){for(let x=Math.max(0,Math.floor(cx-radius));x<=Math.min(w-1,Math.ceil(cx+radius));x++){const d=(x-cx)*(x-cx)+(y-cy)*(y-cy);if(d<=r2)m[y*w+x]=erase?0:255}}}
+}
+function cutWand(p){const w=CUT.w,h=CUT.h,m=CUT.mask,raw=CUT.original.data;const sx=Math.floor(p.x),sy=Math.floor(p.y),start=sy*w+sx,off=start*4;
+ const rr=raw[off],gg=raw[off+1],bb=raw[off+2],tol=Number($('#cutTolerance').value);const limit=tol*tol*3;const subtract=$('#cutSubtractWand').checked;const visited=new Uint8Array(w*h),queue=new Int32Array(w*h);let head=0,tail=1;queue[0]=start;visited[start]=1;let n=0;
+ while(head<tail){const i=queue[head++],p4=i*4,dr=raw[p4]-rr,dg=raw[p4+1]-gg,db=raw[p4+2]-bb;if(dr*dr+dg*dg+db*db>limit)continue;
+ m[i]=subtract?0:255;n++;const x=i%w,y=(i/w)|0;
+ if(x>0&&!visited[i-1]){visited[i-1]=1;queue[tail++]=i-1}
+ if(x<w-1&&!visited[i+1]){visited[i+1]=1;queue[tail++]=i+1}
+ if(y>0&&!visited[i-w]){visited[i-w]=1;queue[tail++]=i-w}
+ if(y<h-1&&!visited[i+w]){visited[i+w]=1;queue[tail++]=i+w}}
+ cutStatus(`${n.toLocaleString()}画素を${subtract?'選択から除去':'選択'}しました。必要ならブラシで修正してください。`)
+}
+function cutCompletePolygon(){if(CUT.polygon.length<3){cutStatus('なげなわは3点以上タップしてください。');return}cutSaveUndo();const temp=document.createElement('canvas');temp.width=CUT.w;temp.height=CUT.h;const c=temp.getContext('2d',{willReadFrequently:true});c.fillStyle='#fff';c.beginPath();CUT.polygon.forEach((p,i)=>i?c.lineTo(p.x,p.y):c.moveTo(p.x,p.y));c.closePath();c.fill();const d=c.getImageData(0,0,CUT.w,CUT.h).data,subtract=$('#cutSubtractWand').checked;for(let i=0;i<CUT.mask.length;i++)if(d[i*4+3]>120)CUT.mask[i]=subtract?0:255;CUT.polygon=[];cutDraw();cutStatus('なげなわの範囲を反映しました。')}
+function cutPreviewMode(mode){CUT.view=mode;cutDraw()}
+function cutSelectedCount(){let n=0;for(let i=0;i<CUT.mask.length;i++)if(CUT.mask[i]>=128)n++;return n}
+function cutGetAlpha(){const src=CUT.mask,w=CUT.w,h=CUT.h,r=Number($('#cutFeather').value);if(!r)return src;const n=w*h;let hsum=new Uint32Array(n),output=new Uint8Array(n);const width=2*r+1;
+ // Smooth mask edges horizontally and vertically. 
+ for(let y=0;y<h;y++){let sum=0;for(let i=-r;i<=r;i++)sum+=src[y*w+clamp(i,0,w-1)];for(let x=0;x<w;x++){hsum[y*w+x]=Math.round(sum/width);sum-=src[y*w+clamp(x-r,0,w-1)];sum+=src[y*w+clamp(x+r+1,0,w-1)]}}
+ for(let x=0;x<w;x++){let sum=0;for(let j=-r;j<=r;j++)sum+=hsum[clamp(j,0,h-1)*w+x];for(let y=0;y<h;y++){output[y*w+x]=Math.round(sum/width);sum-=hsum[clamp(y-r,0,h-1)*w+x];sum+=hsum[clamp(y+r+1,0,h-1)*w+x]}}
+ return output}
+function cutMakeForeground(alpha){const w=CUT.w,h=CUT.h,p=new Uint8ClampedArray(CUT.original.data);for(let i=0;i<alpha.length;i++){p[i*4+3]=Math.round(p[i*4+3]*alpha[i]/255)}const can=document.createElement('canvas');can.width=w;can.height=h;can.getContext('2d').putImageData(new ImageData(p,w,h),0,0);return can}
+function cutMakeBackground(alpha,fill){const w=CUT.w,h=CUT.h,n=w*h,p=new Uint8ClampedArray(CUT.original.data);if(!fill){const can=document.createElement('canvas');can.width=w;can.height=h;can.getContext('2d').putImageData(new ImageData(p,w,h),0,0);return can}
+ // Approximate local inpainting by propagating neighboring visible pixels.
+ // This fills gaps without contacting a generative AI or external service.
+ const hole=new Uint8Array(n);let holes=0;for(let i=0;i<n;i++)if(alpha[i]>64){hole[i]=1;holes++}if(holes>0&&holes<n){const nearest=new Int32Array(n),queue=new Int32Array(n);nearest.fill(-1);let tail=0;
+ for(let i=0;i<n;i++)if(!hole[i]){nearest[i]=i;queue[tail++]=i}
+ let head=0;while(head<tail){const i=queue[head++],x=i%w,y=(i/w)|0,seed=nearest[i];if(x>0&&nearest[i-1]<0){nearest[i-1]=seed;queue[tail++]=i-1}if(x<w-1&&nearest[i+1]<0){nearest[i+1]=seed;queue[tail++]=i+1}if(y>0&&nearest[i-w]<0){nearest[i-w]=seed;queue[tail++]=i-w}if(y<h-1&&nearest[i+w]<0){nearest[i+w]=seed;queue[tail++]=i+w}}
+ for(let i=0;i<n;i++)if(hole[i]){const seed=nearest[i];if(seed<0)continue;const a=i*4,b=seed*4;p[a]=p[b];p[a+1]=p[b+1];p[a+2]=p[b+2];p[a+3]=255}
+ // Feather hard seams near mask perimeter using just a few averaging passes.
+ for(let pass=0;pass<3;pass++){const q=new Uint8ClampedArray(p);for(let y=1;y<h-1;y++)for(let x=1;x<w-1;x++){const i=y*w+x;if(!hole[i])continue;const at=i*4,up=at-w*4,down=at+w*4,left=at-4,right=at+4;for(let k=0;k<3;k++)p[at+k]=Math.round((q[at+k]*2+q[up+k]+q[down+k]+q[left+k]+q[right+k])/6)}}
+ }else if(holes===n){for(let i=0;i<n;i++){const a=i*4;p[a]=245;p[a+1]=244;p[a+2]=239;p[a+3]=255}}
+ const can=document.createElement('canvas');can.width=w;can.height=h;can.getContext('2d').putImageData(new ImageData(p,w,h),0,0);return can}
+function cutToBlob(canvas){return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error('PNG変換に失敗')),'image/png'))}
+async function cutOutput(mode){if(CUT.busy||!CUT.original)return;const count=cutSelectedCount();if(!count){cutStatus('切り抜く範囲がありません。先にブラシなどで選択してください。');toast('選択範囲がありません');return}try{cutBusy('画像レイヤーを生成中…');await new Promise(r=>setTimeout(r,30));const alpha=cutGetAlpha(),fg=await cutToBlob(cutMakeForeground(alpha));if(mode==='fg'){download(fg,'motion-frame-cutout.png');cutStatus('切り抜きPNGを保存しました');return}
+ const bg=await cutToBlob(cutMakeBackground(alpha,$('#cutFill').checked));if(mode==='bg'){download(bg,'motion-frame-background.png');cutStatus('背景PNGを保存しました');return}
+ const name=($('#cutName').value||'切り抜き').trim();const saved=CUT.sourceLayer;const originalIndex=saved?state.layers.indexOf(saved):-1;
+ const baseStart=saved?clone(saved.start):defaultTransform(),baseEnd=saved?clone(saved.end):defaultTransform(),fit=saved?saved.fit:'contain';
+ const bl=await addLayer(bg,{name:'背景（補完）'});bl.name=$('#cutFill').checked?'背景（簡易補完）':'背景（原画）';bl.depth=saved?Math.min(saved.depth,15):5;bl.fit=fit;bl.start=clone(baseStart);bl.end=clone(baseEnd);
+ const fl=await addLayer(fg,{name});fl.name=name;fl.depth=Number($('#cutDepth').value);fl.fit=fit;fl.start=clone(baseStart);fl.end=clone(baseEnd);
+ if(originalIndex>=0){const current=state.layers.indexOf(saved);if(current>=0){state.layers.splice(current,1);cleanLayer(saved)}const bgIdx=state.layers.indexOf(bl);if(bgIdx>=0)state.layers.splice(bgIdx,1);const fgIdx=state.layers.indexOf(fl);if(fgIdx>=0)state.layers.splice(fgIdx,1);state.layers.splice(originalIndex,0,bl,fl)}
+ state.selected=fl.id;CUT.sourceLayer=null;cutClose();refreshLayers();refreshInspector();render();toast('背景と切り抜きを2つのレイヤーにしました');status('切り抜きレイヤーを作成しました。人物と背景の奥行き・動きを調整できます。');
+ }catch(e){cutStatus('レイヤー生成に失敗: '+e.message);toast('生成失敗: '+e.message)}finally{cutBusy('')}}
+function cutTimeout(p,ms=30000){return Promise.race([p,new Promise((_,reject)=>setTimeout(()=>reject(Error('AIモデルの読み込みがタイムアウトしました')),ms))])}
+async function cutGetVision(){if(!CUT.visionPkg)CUT.visionPkg=await cutTimeout(import('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/vision_bundle.mjs'));if(!CUT.visionFiles)CUT.visionFiles=await cutTimeout(CUT.visionPkg.FilesetResolver.forVisionTasks('https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm'));return [CUT.visionPkg,CUT.visionFiles]}
+async function cutObjectSelect(p){if(CUT.busy||!CUT.original)return;let result;
+ try{cutBusy('AIで選択対象を認識中…（初回はダウンロードが必要）');await new Promise(r=>setTimeout(r,40));if(!CUT.objectSegmenter){const [pkg,vision]=await cutGetVision();CUT.objectSegmenter=await cutTimeout(pkg.InteractiveSegmenter.createFromOptions(vision,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/interactive_segmenter_v2/magic_touch/int8/latest/interactive_segmentation.task',delegate:'CPU'}}))}
+ const seg=CUT.objectSegmenter;if(typeof seg.setImage==='function'){if(CUT.objectSource!==CUT.source){seg.setImage(CUT.source);CUT.objectSource=CUT.source}result=seg.segment([{brushMode:1,point:[{x:p.x/CUT.w,y:p.y/CUT.h}],isCompleted:true}])}else{result=seg.segment(CUT.source,{keypoint:{x:p.x/CUT.w,y:p.y/CUT.h}})}
+ if(!result?.getAsFloat32Array)throw Error('この環境ではAI物体選択に対応していません');const values=result.getAsFloat32Array(),mw=result.width,mh=result.height,subtract=$('#cutSubtractWand').checked;cutSaveUndo();let pixels=0;
+ for(let y=0;y<CUT.h;y++){let sy=Math.min(mh-1,Math.floor(y*mh/CUT.h));for(let x=0;x<CUT.w;x++){let v=values[sy*mw+Math.min(mw-1,Math.floor(x*mw/CUT.w))];if(v>.5){const i=y*CUT.w+x;CUT.mask[i]=subtract?0:255;pixels++}}}
+ cutPreviewMode('overlay');cutStatus(`AI物体選択が完了しました（約${Math.round(pixels/CUT.mask.length*100)}%）。自動選択の精度を確認し、ブラシで輪郭を調整してください。`)
+ }catch(e){cutStatus('AIで物体を選択できませんでした: '+(e?.message||e)+'。なげなわ・タップ範囲選択で手動分離できます。');toast('AI物体認識を利用できませんでした')}
+ finally{try{result?.close?.()}catch(e){}cutBusy('')}
+}
+async function cutAutoSelect(){if(!CUT.original||CUT.busy)return;let result=null;try{cutBusy('人物認識AIを読み込み中…（初回は通信が必要）');await new Promise(r=>setTimeout(r,80));if(!CUT.segmenter){const [pkg,vision]=await cutGetVision();CUT.segmenter=await cutTimeout(pkg.ImageSegmenter.createFromOptions(vision,{baseOptions:{modelAssetPath:'https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter/float16/latest/selfie_segmenter.tflite',delegate:'CPU'},runningMode:'IMAGE',outputConfidenceMasks:true,outputCategoryMask:true}))}
+ cutBusy('人物を認識中…');result=CUT.segmenter.segment(CUT.source);const masks=result.confidenceMasks||[];const mask=masks.length>1?masks[1]:masks[0];if(!mask)throw new Error('人物の検出結果がありません');const floats=mask.getAsFloat32Array(),mw=mask.width,mh=mask.height;cutSaveUndo();let selected=0;for(let y=0;y<CUT.h;y++){const sy=Math.min(mh-1,Math.floor(y*mh/CUT.h));for(let x=0;x<CUT.w;x++){const sx=Math.min(mw-1,Math.floor(x*mw/CUT.w));const value=floats[sy*mw+sx];const a=value<.35?0:value>.65?255:Math.round(255*(value-.35)/.3);CUT.mask[y*CUT.w+x]=a;if(a>=128)selected++}}
+ cutDraw();const pct=Math.round(selected/(CUT.w*CUT.h)*100);cutStatus(`AI認識が完了しました（選択範囲 ${pct}%）。漫画の線画では誤認識しやすいため、原画＋選択で確認し、ブラシやなげなわで修正してください。`);if(pct<1||pct>95)toast('人物認識が不十分な可能性があります。手動で修正してください');
+ }catch(e){cutStatus('AI人物認識を利用できませんでした: '+(e?.message||e)+'。ブラシ・なげなわ・タップ選択は通信不要で使用できます。');toast('AI認識ができません。手動切り抜きをお使いください')}
+ finally{try{result?.close?.()}catch(e){}cutBusy('')}}
+$('#openCutter').onclick=()=>{const l=getSelected();if(l&&l.type==='image'){cutLoad(l.blob,l)}else{$('#cutFileInput').click()}};
+$('#cutDemo').onclick=async()=>{try{const demo=document.createElement('canvas');demo.width=540;demo.height=960;const cx=demo.getContext('2d');for(const svg of [demoBackground,demoPerson,demoForeground]){const data=new Blob([svg],{type:'image/svg+xml'}),media=await initMedia(data,'image');cx.drawImage(media.el,0,0,540,960);URL.revokeObjectURL(media.url)}await cutLoad(await cutToBlob(demo))}catch(e){toast('サンプルの読み込みに失敗しました')}};
+$('#cutPickBtn').onclick=()=>$('#cutFileInput').click();$('#cutClose').onclick=cutClose;
+$('#cutFileInput').onchange=e=>{if(e.target.files[0])cutLoad(e.target.files[0]);e.target.value=''};
+$('#cutAuto').onclick=cutAutoSelect;
+$$('[data-cut-tool]').forEach(b=>b.onclick=()=>cutSetTool(b.dataset.cutTool));
+$('#cutViewOriginal').onclick=()=>cutPreviewMode('overlay');$('#cutViewExtract').onclick=()=>cutPreviewMode('isolated');$('#cutViewBack').onclick=()=>cutPreviewMode('background');
+$('#cutZoomIn').onclick=()=>cutSetZoom(CUT.zoom*1.35);$('#cutZoomOut').onclick=()=>cutSetZoom(CUT.zoom/1.35);
+$('#cutBrush').oninput=e=>$('#cutBrushVal').textContent=e.target.value+'px';$('#cutTolerance').oninput=e=>$('#cutTolVal').textContent=e.target.value;$('#cutFeather').oninput=e=>$('#cutFeatherVal').textContent=e.target.value+'px';$('#cutDepth').oninput=e=>$('#cutDepthVal').textContent=e.target.value;
+$('#cutInvert').onclick=()=>{if(!CUT.mask)return;cutSaveUndo();for(let i=0;i<CUT.mask.length;i++)CUT.mask[i]=255-CUT.mask[i];cutDraw();cutStatus('選択範囲を反転しました。')};
+$('#cutUndo').onclick=()=>{if(CUT.history.length){CUT.mask=CUT.history.pop();CUT.polygon=[];cutDraw();cutStatus('1操作戻しました。')}else toast('戻せる操作がありません')};
+$('#cutClear').onclick=()=>{if(CUT.mask){cutSaveUndo();CUT.mask.fill(0);CUT.polygon=[];cutDraw();cutStatus('選択を消去しました。')}};
+$('#cutClosePolygon').onclick=cutCompletePolygon;
+$('#cutSaveForeground').onclick=()=>cutOutput('fg');$('#cutSaveBackground').onclick=()=>cutOutput('bg');$('#cutCommit').onclick=()=>cutOutput('commit');
+cutCanvas.addEventListener('pointerdown',e=>{if(!CUT.mask||CUT.busy||CUT.tool==='pan')return;if(CUT.view==='background')CUT.view='overlay';e.preventDefault();const p=cutGetPoint(e);if(CUT.tool==='lasso'){CUT.polygon.push(p);cutDraw();return}cutSaveUndo();if(CUT.tool==='wand'){cutWand(p);cutDraw();return}if(CUT.tool==='object'){CUT.history.pop();cutObjectSelect(p);return}CUT.activePointer=e.pointerId;CUT.lastPoint=p;cutCanvas.setPointerCapture(e.pointerId);cutBrush(p,p,CUT.tool==='erase');cutDraw()});
+cutCanvas.addEventListener('pointermove',e=>{if(CUT.activePointer!==e.pointerId||!CUT.lastPoint)return;e.preventDefault();const p=cutGetPoint(e);cutBrush(CUT.lastPoint,p,CUT.tool==='erase');CUT.lastPoint=p;cutDraw()});
+function cutPointerEnd(e){if(CUT.activePointer===e.pointerId){CUT.activePointer=null;CUT.lastPoint=null;cutStatus('手動編集を反映しました。')}}cutCanvas.addEventListener('pointerup',cutPointerEnd);cutCanvas.addEventListener('pointercancel',cutPointerEnd);
+window.addEventListener('resize',()=>{if(!$('#cutModal').hidden)cutFit()});
+
 // UI bindings
 $('#addImages').onclick=()=>$('#imageInput').click();$('#addVideo').onclick=()=>$('#videoInput').click();
 $('#imageInput').addEventListener('change',async e=>{for(const f of e.target.files)try{await addLayer(f)}catch(err){toast(f.name+': '+err.message)}e.target.value=''});
